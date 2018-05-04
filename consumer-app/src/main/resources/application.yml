@@ -1,0 +1,22 @@
+
+spring:
+  zipkin:
+    baseUrl: http://localhost:9411
+  sleuth:
+    sampler:
+      percentage: 1.0
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: 127.0.0.1:9092
+      bindings:
+                input:
+                  destination: students-topic
+                  content-type: application/protobuf
+                  consumer:
+                    headerMode: embeddedHeaders
+                    #headerMode: raw
+server:
+  port: 8888
+

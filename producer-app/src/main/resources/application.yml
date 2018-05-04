@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  #zipkin:
+    #base-url: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+  cloud:
+      stream:
+        defaultBinder: kafka
+        bindings:
+                        students-channel:
+                          destination: students-topic
+                          content-type: application/protobuf
+                          producer:
+                            #headerMode: raw
+                            headerMode: embeddedHeaders
+        kafka:
+          binder:
+            brokers: 127.0.0.1 
+            zkNodes: 127.0.0.1 
+            defaultZkPort: 2181
+            defaultBrokerPort: 9092
+

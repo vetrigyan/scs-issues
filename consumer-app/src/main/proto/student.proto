@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package gyan.abc.school.v1;
+
+option java_package = "com.gyan.abc.school.v1";
+
+message StudentInfo {
+	int32 id = 1;
+	string name = 2;
+}
